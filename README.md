@@ -42,6 +42,10 @@ streamlit run app_ear.py
 └── requirements.txt
 ```
 
----
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://monitoramento-ear-sin.streamlit.app/)
+
+![Prévia do App](preview.jpg)
+
+---
 > Dados atualizados automaticamente via API pública do ONS.
