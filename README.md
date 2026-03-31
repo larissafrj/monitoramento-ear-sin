@@ -1,6 +1,6 @@
 # 💧 monitoramento-ear-sin
 
-Dashboard interativo para acompanhamento diário da **Energia Armazenada nos Reservatórios (EAR)** do Sistema Interligado Nacional (SIN), com dados abertos do [ONS](https://dados.ons.org.br).
+Dashboard interativo para acompanhamento diário da **Energia Armazenada nos Reservatórios (EAR)** do Sistema Interligado Nacional (SIN), com dados abertos do [ONS](https://dados.ons.org.br). [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://monitoramento-ear-sin.streamlit.app/)
 
 ---
 
@@ -43,7 +43,7 @@ streamlit run app_ear.py
 ```
 
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://monitoramento-ear-sin.streamlit.app/)
+
 
 ![Prévia do App](preview.jpg)
 
