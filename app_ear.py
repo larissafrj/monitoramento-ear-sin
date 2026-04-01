@@ -158,7 +158,6 @@ def _cor_percentual(valor: float | None) -> str:
 # ---------------------------------------------------------------------------
 
 
-@st.cache_data(show_spinner=False)
 def _carrega_dados() -> pd.DataFrame:
     tabela      = od.retorna_historico_EAR_subsistema()
     ear_percent = od.retorna_historico_EAR_subsistema_com_SIN(tabela)
@@ -172,8 +171,6 @@ def _carrega_dados() -> pd.DataFrame:
 
 def _sidebar(anos_disponiveis: list[int]) -> tuple[str, list[int]]:
     with st.sidebar:
-        st.markdown("## 💧 EAR · Filtros")
-        st.markdown("---")
 
         subsistema = st.selectbox(
             "Subsistema",
@@ -203,7 +200,15 @@ def _sidebar(anos_disponiveis: list[int]) -> tuple[str, list[int]]:
             anos_selecionados = [ANO_CLIMATOLOGIA] + anos_selecionados
 
         st.markdown("---")
+        if st.button("🔄 Forçar atualização", use_container_width=True):
+            od.retorna_historico_EAR_subsistema.clear()
+            od.retorna_historico_EAR_subsistema_com_SIN.clear()
+            st.rerun()
+            
+        st.markdown("---")
         st.caption("Fonte: ONS – Dados Abertos  \nhttps://dados.ons.org.br")
+
+
 
     return subsistema, anos_selecionados
 
@@ -401,7 +406,7 @@ def main() -> None:
     st.markdown("---")
     st.caption(
         "Dados: [ONS – Dados Abertos](https://dados.ons.org.br) · "
-        "Atualização automática a cada hora · "
+        "Cache renovado a cada 6 horas · "
         "Desenvolvido com Streamlit + Plotly"
     )
 

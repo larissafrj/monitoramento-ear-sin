@@ -16,7 +16,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 import streamlit as st
-from datetime import datetime
+from datetime import datetime, timedelta
 from calendar import monthrange
 
 
@@ -73,7 +73,7 @@ def _normaliza_colunas(df: pd.DataFrame) -> pd.DataFrame:
 # Funções públicas
 # ---------------------------------------------------------------------------
 
-@st.cache_data(show_spinner="Carregando dados históricos de EAR…", ttl=3600)
+@st.cache_data(show_spinner="Carregando dados históricos de EAR…", ttl=timedelta(hours=6))
 def retorna_historico_EAR_subsistema() -> pd.DataFrame:
     """
     Baixa e consolida os dados diários de EAR por subsistema de
@@ -134,7 +134,7 @@ def _calcula_climatologia(df: pd.DataFrame) -> pd.DataFrame:
     ].sort_values("ear_data")
 
 
-@st.cache_data(show_spinner=False, ttl=3600)
+@st.cache_data(show_spinner=False)
 def retorna_historico_EAR_subsistema_com_SIN(
     tabela: pd.DataFrame,
 ) -> pd.DataFrame:
